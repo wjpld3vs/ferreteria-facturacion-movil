@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.DashboardPage"
+             Title="Dashboard">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="18">
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{Binding Bienvenida}" FontSize="24" FontAttributes="Bold" />
+                    <Label Text="{Binding Rol}" TextColor="{StaticResource Secondary}" />
+                    <Button Text="Cerrar sesion"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Command="{Binding LogoutCommand}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Accesos rapidos" FontSize="18" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding QuickActions}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardFrameStyle}" Margin="0,0,0,12">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="{Binding .}" FontSize="16" FontAttributes="Bold" />
+                                <Button Text="Abrir"
+                                        Style="{StaticResource PrimaryButtonStyle}"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenPageCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

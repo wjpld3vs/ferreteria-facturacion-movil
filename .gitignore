@@ -1,0 +1,47 @@
+# Visual Studio / .NET / MAUI
+.vs/
+bin/
+obj/
+TestResults/
+artifacts/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userprefs
+
+# Logs and temp
+logs/
+*.log
+*.tmp
+*.cache
+
+# SQLite / local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# App settings with potential secrets
+appsettings.Development.json
+FerreteriaInventario.Api/appsettings.Development.json
+
+# NuGet / dotnet local caches created in workspace
+.nuget/
+.dotnet/
+
+# MAUI / mobile build outputs
+*.apk
+*.aab
+*.appx
+*.msix
+*.dmg
+*.ipa
+
+# IDE / OS noise
+.DS_Store
+Thumbs.db
+
+# Keep example configuration
+!appsettings.example.json
+!FerreteriaInventario.Api/appsettings.example.json

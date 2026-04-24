@@ -1,0 +1,14 @@
+namespace FerreteriaInventario.Api.Helpers;
+
+public class ApiException : Exception
+{
+    public ApiException(string message, int statusCode = StatusCodes.Status400BadRequest, string? details = null)
+        : base(message)
+    {
+        StatusCode = statusCode;
+        Details = details;
+    }
+
+    public int StatusCode { get; }
+    public string? Details { get; }
+}

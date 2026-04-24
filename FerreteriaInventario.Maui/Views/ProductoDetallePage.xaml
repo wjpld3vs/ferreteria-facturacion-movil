@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.ProductoDetallePage"
+             Title="Producto">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Entry Placeholder="Codigo" Text="{Binding Codigo}" />
+            <Entry Placeholder="Nombre" Text="{Binding Nombre}" />
+            <Entry Placeholder="Descripcion" Text="{Binding Descripcion}" />
+            <Entry Placeholder="Categoria" Text="{Binding Categoria}" />
+            <Entry Placeholder="Marca" Text="{Binding Marca}" />
+            <Entry Placeholder="Unidad de medida" Text="{Binding UnidadMedida}" />
+            <Entry Placeholder="Precio compra" Keyboard="Numeric" Text="{Binding PrecioCompra}" />
+            <Entry Placeholder="Precio venta" Keyboard="Numeric" Text="{Binding PrecioVenta}" />
+            <Entry Placeholder="Stock actual" Keyboard="Numeric" Text="{Binding StockActual}" />
+            <Entry Placeholder="Stock minimo" Keyboard="Numeric" Text="{Binding StockMinimo}" />
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Activo" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding Activo}" />
+            </HorizontalStackLayout>
+            <Button Text="Guardar" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding SaveCommand}" />
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.VentaDetallePage"
+             Title="Registrar venta">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Picker Title="Cliente" ItemsSource="{Binding Clientes}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding SelectedCliente}" />
+            <Entry Placeholder="Numero de comprobante" Text="{Binding NumeroComprobante}" />
+            <Entry Placeholder="Impuesto" Keyboard="Numeric" Text="{Binding Impuesto}" />
+            <Entry Placeholder="Descuento" Keyboard="Numeric" Text="{Binding Descuento}" />
+            <Entry Placeholder="Observaciones" Text="{Binding Observaciones}" />
+
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Detalle" FontAttributes="Bold" />
+                    <Picker Title="Producto" ItemsSource="{Binding Productos}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding SelectedProducto}" />
+                    <Entry Placeholder="Cantidad" Keyboard="Numeric" Text="{Binding Cantidad}" />
+                    <Entry Placeholder="Precio unitario" Keyboard="Numeric" Text="{Binding PrecioUnitario}" />
+                    <Button Text="Agregar linea" Style="{StaticResource SecondaryButtonStyle}" Command="{Binding AddLineaCommand}" />
+                    <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <CollectionView ItemsSource="{Binding Lineas}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardFrameStyle}" Margin="0,0,0,10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding ProductoNombre}" FontAttributes="Bold" />
+                                <Label Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" />
+                                <Label Text="{Binding PrecioUnitario, StringFormat='Precio: {0:C}'}" />
+                                <Label Text="{Binding Subtotal, StringFormat='Subtotal: {0:C}'}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="{Binding Subtotal, StringFormat='Subtotal: {0:C}'}" FontAttributes="Bold" />
+            <Label Text="{Binding Total, StringFormat='Total: {0:C}'}" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+            <Button Text="Guardar venta" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding SaveCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

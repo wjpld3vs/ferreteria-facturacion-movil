@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.ReportesPage"
+             Title="Reportes">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <DatePicker Date="{Binding FechaInicio}" />
+                <DatePicker Grid.Column="1" Date="{Binding FechaFin}" />
+            </Grid>
+            <Button Text="Actualizar reportes" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding LoadCommand}" />
+
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="{Binding TotalVentasPeriodo, StringFormat='Ventas periodo: {0:C}'}" FontAttributes="Bold" />
+                    <Label Text="{Binding TotalComprasPeriodo, StringFormat='Compras periodo: {0:C}'}" FontAttributes="Bold" />
+                    <Label Text="{Binding ValorInventario, StringFormat='Valor inventario: {0:C}'}" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Stock bajo" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding StockBajo}" HeightRequest="180">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Nombre}" Margin="0,0,0,6" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Ventas en rango" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding VentasPeriodo}" HeightRequest="220">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding NumeroDocumento}" Margin="0,0,0,6" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Compras en rango" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding ComprasPeriodo}" HeightRequest="220">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding NumeroDocumento}" Margin="0,0,0,6" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

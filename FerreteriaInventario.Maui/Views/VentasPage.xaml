@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.VentasPage"
+             Title="Ventas">
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Button Text="Nueva venta" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding NewCommand}" />
+        <CollectionView ItemsSource="{Binding Ventas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource CardFrameStyle}" Margin="0,0,0,10">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding NumeroComprobante}" FontAttributes="Bold" />
+                            <Label Text="{Binding ClienteNombre}" />
+                            <Label Text="{Binding Total, StringFormat='Total: {0:C}'}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

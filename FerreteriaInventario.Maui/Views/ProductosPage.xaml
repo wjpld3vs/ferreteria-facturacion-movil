@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerreteriaInventario.Maui.Views.ProductosPage"
+             Title="Productos">
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+            <Entry Placeholder="Buscar por nombre, codigo, categoria o marca"
+                   Text="{Binding SearchText}" />
+            <Button Grid.Column="1"
+                    Text="Buscar"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Command="{Binding SearchCommand}" />
+        </Grid>
+
+        <Button Text="Nuevo producto"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding NewProductCommand}"
+                IsVisible="{Binding CanManage}" />
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}" />
+
+        <CollectionView ItemsSource="{Binding Productos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource CardFrameStyle}" Margin="0,0,0,10">
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                            <Label Text="{Binding Nombre}" FontSize="16" FontAttributes="Bold" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Codigo}"
+                                   TextColor="{StaticResource TextMuted}" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding Categoria}" />
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding StockActual, StringFormat='Stock: {0}'}" />
+                            <Button Grid.Row="2"
+                                    Text="Ver detalle"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenDetailCommand}"
+                                    CommandParameter="{Binding .}" />
+                        </Grid>
+                        <Frame.Triggers>
+                            <DataTrigger TargetType="Frame" Binding="{Binding StockBajo}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource LowStock}" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
