@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerreteriaInventario.Api", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerreteriaInventario.Maui", "FerreteriaInventario.Maui\FerreteriaInventario.Maui.csproj", "{51DFB959-F46C-4CEF-AF87-0B2657C2A31B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerreteriaInventario.Tests", "FerreteriaInventario.Tests\FerreteriaInventario.Tests.csproj", "{CAC5473F-4C77-47BD-919E-51508315BFCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,8 +43,23 @@ Global
 		{51DFB959-F46C-4CEF-AF87-0B2657C2A31B}.Release|x64.Build.0 = Release|Any CPU
 		{51DFB959-F46C-4CEF-AF87-0B2657C2A31B}.Release|x86.ActiveCfg = Release|Any CPU
 		{51DFB959-F46C-4CEF-AF87-0B2657C2A31B}.Release|x86.Build.0 = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|x64.Build.0 = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Debug|x86.Build.0 = Debug|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|x64.ActiveCfg = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|x64.Build.0 = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|x86.ActiveCfg = Release|Any CPU
+		{CAC5473F-4C77-47BD-919E-51508315BFCE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CDD0280-F271-4361-81E0-F5B72041FE14}
 	EndGlobalSection
 EndGlobal
