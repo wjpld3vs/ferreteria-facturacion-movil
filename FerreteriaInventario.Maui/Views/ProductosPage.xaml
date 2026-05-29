@@ -6,14 +6,20 @@
     <VerticalStackLayout Padding="20" Spacing="12">
         <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
             <Entry Placeholder="Buscar por nombre, codigo, categoria o marca"
+                   x:Name="SearchEntry"
+                   AutomationId="Productos_SearchEntry"
                    Text="{Binding SearchText}" />
             <Button Grid.Column="1"
                     Text="Buscar"
+                    x:Name="SearchButton"
+                    AutomationId="Productos_SearchButton"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Command="{Binding SearchCommand}" />
         </Grid>
 
         <Button Text="Nuevo producto"
+                x:Name="NewProductButton"
+                AutomationId="Productos_NewButton"
                 Style="{StaticResource SecondaryButtonStyle}"
                 Command="{Binding NewProductCommand}"
                 IsVisible="{Binding CanManage}" />

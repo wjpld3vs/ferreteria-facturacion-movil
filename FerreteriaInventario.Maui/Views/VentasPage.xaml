@@ -4,7 +4,11 @@
              x:Class="FerreteriaInventario.Maui.Views.VentasPage"
              Title="Ventas">
     <VerticalStackLayout Padding="20" Spacing="12">
-        <Button Text="Nueva venta" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding NewCommand}" />
+        <Button Text="Nueva venta"
+                x:Name="NewVentaButton"
+                AutomationId="Ventas_NewButton"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Command="{Binding NewCommand}" />
         <CollectionView ItemsSource="{Binding Ventas}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "FerreteriaInventario.UITests": {
+      "commandName": "Project",
+      "commandLineArgs": "--address 127.0.0.1 --port 4723",
+      "environmentVariables": {
+        "API_BASE_URL": "http://10.77.82.211:4723",
+        "APPIUM_ANDROID_DEVICE": "emulator-5554",
+        "ANDROID_HOME ": "C:\\Program Files (x86)\\Android\\android-sdk",
+        "ANDROID_APP_PATH ": "",
+        "TEST_USERNAME": "admin",
+        "TEST_PASSWORD": "Admin123*"
+      }
+    }
+  }
+}

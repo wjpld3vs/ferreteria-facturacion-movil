@@ -15,16 +15,25 @@
             <Frame Style="{StaticResource CardFrameStyle}">
                 <VerticalStackLayout Spacing="14">
                     <Entry Placeholder="Usuario o correo"
+                           x:Name="UsuarioEntry"
+                           AutomationId="Login_UsuarioEntry"
                            Text="{Binding UsuarioOEmail}" />
                     <Entry Placeholder="Contrasena"
+                           x:Name="PasswordEntry"
                            IsPassword="True"
+                           AutomationId="Login_PasswordEntry"
                            Text="{Binding Password}" />
                     <Button Text="Iniciar sesion"
+                            x:Name="SubmitButton"
+                            AutomationId="Login_SubmitButton"
                             Style="{StaticResource PrimaryButtonStyle}"
                             Command="{Binding LoginCommand}" />
                     <ActivityIndicator IsRunning="{Binding IsBusy}"
-                                       IsVisible="{Binding IsBusy}" />
+                                       IsVisible="{Binding IsBusy}"
+                                       AutomationId="Login_Loader" />
                     <Label Text="{Binding ErrorMessage}"
+                           x:Name="ErrorLabel"
+                           AutomationId="Login_ErrorLabel"
                            TextColor="{StaticResource Danger}" />
                 </VerticalStackLayout>
             </Frame>
